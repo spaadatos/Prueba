@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <?php
+  require_once 'autoload.php';                      // Comment this line if you use Composer to install the package
+  use \Convertio\Convertio;
+
+  $API = new Convertio("67f6af6b81c5afc38cb2365aa4166492");           // You can obtain API Key here: https://convertio.co/api/
+
+  $API->startFromURL('http://google.com/', 'png')   // Convert (Render) HTML Page to PNG
+  ->wait()                                          // Wait for conversion finish
+  ->download('./google.png')                        // Download Result To Local File
+  ->delete();                                       // Delete Files from Convertio hosts
+  </body>
+</html>
